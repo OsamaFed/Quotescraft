@@ -28,7 +28,7 @@ I couldn't find a free API that met my standards (most had limited or low-qualit
 - Responsive Design  
 - Handpicked Quote Data
 
-![QuotesCraft Preview](https://quotescraft.netlify.app/assets/og-image.png)
+
 
 ## 🎯 Purpose
 
