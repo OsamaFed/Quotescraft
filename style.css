@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Pixelify Sans', Poppins, sans-serif;
+  display: flex;
+  direction: ltr;
+}
+
+.con {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  position: relative;
+  z-index: 1;
+}
+
+
+.bg-night {
+  background: url(https://i.imgur.com/6CiWA3W.jpeg) no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.bg-night::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  opacity: 0.14;
+}
+
+.bg-day {
+  background: url(https://i.imgur.com/WOjYhHN.png) no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.bg-day::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  opacity: 0.14;
+}
+
+
+.quote-box {
+  border: 1px solid #fceff9;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  color: #fceff9;
+  background: linear-gradient(rgba(90, 62, 133, 0.35), rgba(120, 85, 170, 0.35));
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+}
+
+#quote {
+  font-size: 20px;
+  text-align: center;
+}
+
+#title {
+  font-size: 35px;
+  text-align: center;
+  margin: 0 39px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+  margin: 0 auto;
+  max-width: 700px;
+  flex-direction: row; 
+}
+
+#btn, #copy-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: 'Pixelify Sans', Poppins, sans-serif;
+  color: #fceff9;
+  background: linear-gradient(rgba(90, 62, 133, 0.35), rgba(120, 85, 170, 0.35));
+  border: 1px solid #fceff9;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  text-align: center;
+  flex-direction: row;
+}
+
+#btn:hover, #copy-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(120, 85, 170, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+#btn:active, #copy-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 4px rgba(90, 62, 133, 0.4);
+}
+
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  padding: 15px 0;
+  color: #fceff9;
+  z-index: 10;
+}
+
+a {
+  color: #fceff9;
+  text-decoration: none;
+}
+
+
+.night-mode .quote-box {
+  background: linear-gradient(rgba(0, 0, 0, 0.35));
+  border: 1px solid #ccc;
+  color: #e0f7fa;
+  box-shadow: 0 0 10px rgba(224, 247, 250, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+.night-mode #btn, 
+.night-mode #copy-btn {
+  background: none;
+  border: 1px solid #ccc;
+  color: #e0f7fa;
+  backdrop-filter: blur(3px);
+}
+
+.night-mode #btn:hover,
+.night-mode #copy-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #e0f7fa;
+  box-shadow: 0 0 10px rgba(224, 247, 250, 0.5);
+}
+
+.night-mode footer {
+  color: #e0f7fa;
+}
+
+.night-mode a {
+  color: #e0f7fa;
+}
+
+
+  @media screen and (max-width: 600px) {
+    .quote-box {
+      margin-bottom: 30px;
+      width: 90%;
+      padding: 20px;
+    }
+
+
+    .buttons-container {
+      flex-direction: column; 
+      align-items: center;
+      gap: 15px;
+    }
+
+#btn, #copy-btn {
+    width: 80%;
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .con {
+    padding-bottom: 80px;
+  }
+
+  .quote-box {
+    padding: 30px 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .quote-box {
+    max-width: 700px;
+  }
+
+  #btn, #copy-btn {
+    min-width: 180px;
+    padding: 12px 30px;
+    font-size: 15px;
+  }
+}
