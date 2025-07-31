@@ -193,45 +193,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function QuoteOfTheDay() {
-    const today = new Date();
-    const dayKey = today.toDateString();
+  const today = new Date();
 
-    const saved = localStorage.getItem("quoteOfTheDay");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (parsed.date === dayKey) {
-        quote1.innerText = parsed.text;
-        author1.innerText = parsed.author;
-        return;
-      }
-    }
+  const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+  const index = dayOfYear % quotes.length;
 
-    let usedIndexes = JSON.parse(localStorage.getItem("usedQuoteIndexes")) || [];
-
-    let availableQuotes = quotes
-      .map((q, i) => ({ ...q, index: i }))
-      .filter(q => !usedIndexes.includes(q.index));
-
-    if (availableQuotes.length === 0) {
-      usedIndexes = [];
-      availableQuotes = quotes.map((q, i) => ({ ...q, index: i }));
-    }
-
-    const randomIndex = Math.floor(Math.random() * availableQuotes.length);
-    const selected = availableQuotes[randomIndex];
-
-    quote1.innerText = selected.text;
-    author1.innerText = selected.author;
-
-    localStorage.setItem("quoteOfTheDay", JSON.stringify({
-      date: dayKey,
-      text: selected.text,
-      author: selected.author
-    }));
-
-    usedIndexes.push(selected.index);
-    localStorage.setItem("usedQuoteIndexes", JSON.stringify(usedIndexes));
-  }
+  quote1.innerText = quotes[index].text;
+  author1.innerText = quotes[index].author;
+}
   function setMode(isNight) {
     if (isNight) {
 
