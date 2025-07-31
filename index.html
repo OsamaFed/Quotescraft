@@ -25,6 +25,20 @@
   <meta property="og:image" content="https://i.imgur.com/y2FJatm.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://quotescraft.netlify.app/">
+  <script>
+      const now = new Date();
+      const hour = now.getHours();
+      const isDay = hour >= 6 && hour < 18;
+
+      let themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      if (!themeColorMeta) {
+        themeColorMeta = document.createElement('meta');
+        themeColorMeta.name = "theme-color";
+        document.head.appendChild(themeColorMeta);
+      }
+
+      themeColorMeta.setAttribute("content", isDay ? "#949BE5" : "#121722");
+    </script>
   <title>QuotesCraft 📜🧱</title>
   <link rel="stylesheet" href="style.css">
 <body class="night-mode">
